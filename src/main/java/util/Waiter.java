@@ -1,5 +1,6 @@
 package util;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -27,4 +28,9 @@ public class Waiter {
     }
 
     public void waitCertainAmountOfTime (int time) { this.driver.manage().timeouts().implicitlyWait(time, TimeUnit.MILLISECONDS); }
+
+    public void acceptCookies () {
+        new WebDriverWait(this.driver, 40)
+                .until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath("/html/body/div[2]/div/div/div/div[2]/div/button[2]")))).click();
+    }
 }
