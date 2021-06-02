@@ -12,6 +12,7 @@ public class UtilDriver {
         this.driver = new ChromeDriver();
         this.waiter = new Waiter(this.driver);
         this.baseUrl = "https://www.futbin.com/";
+        this.driver.get(this.baseUrl);
         this.waiter.waitForPageToLoadCompletely();
         this.waiter.waitCertainAmountOfTime(20);
         driver.manage().window().maximize();
@@ -30,7 +31,6 @@ public class UtilDriver {
     }
 
     public void navigation (String url) {
-        this.waiter.waitCertainAmountOfTime(1000000);
         driver.get(url);
     }
 
