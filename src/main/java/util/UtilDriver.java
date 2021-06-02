@@ -22,10 +22,6 @@ public class UtilDriver {
         return driver;
     }
 
-    public String getBaseUrl() {
-        return baseUrl;
-    }
-
     public void close(){
         driver.close();
     }
@@ -34,4 +30,7 @@ public class UtilDriver {
         driver.get(url);
     }
 
+    public String getProfileUrl (String username) {
+        return this.baseUrl + "/community/user/" + username;
+    }
 }
