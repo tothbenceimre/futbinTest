@@ -21,7 +21,6 @@ public class ProfilePage {
     }
 
     public boolean verifyUsernameIsCorrect (String username) {
-        System.out.println(this.username.getText());
         return this.username.getText().equals(username.toUpperCase());
     }
 }
