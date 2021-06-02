@@ -13,6 +13,7 @@ public class LoginPage {
 
     @FindBy (id = "Email") WebElement username;
     @FindBy (id = "Password") WebElement password;
+    @FindBy (xpath = "//button[normalize-space()='Login']") WebElement loginButton;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -31,5 +32,10 @@ public class LoginPage {
     public void logIn (String username, String password) {
         fillUsernameField(username);
         fillPasswordField(password);
+        clickOnLoginButton();
+    }
+
+    public void clickOnLoginButton () {
+        this.loginButton.click();
     }
 }
