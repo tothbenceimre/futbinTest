@@ -5,16 +5,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class UtilDriver {
     private WebDriver driver;
-    private String baseUrl;
     private Waiter waiter;
 
     public UtilDriver() {
         this.driver = new ChromeDriver();
         this.waiter = new Waiter(this.driver);
-        this.baseUrl = "https://www.futbin.com/";
-        this.driver.get(this.baseUrl);
-        this.waiter.waitForPageToLoadCompletely();
-        this.waiter.waitCertainAmountOfTime(20);
+        this.navigation(this.getBaseUrl());
+        this.waiter.acceptCookies();
         driver.manage().window().maximize();
     }
 
@@ -30,7 +27,11 @@ public class UtilDriver {
         driver.get(url);
     }
 
+    public String getBaseUrl () {
+        return "https://www.futbin.com/";
+    }
+
     public String getProfileUrl (String username) {
-        return this.baseUrl + "/community/user/" + username;
+        return this.getBaseUrl() + "/community/user/" + username;
     }
 }
